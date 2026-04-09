@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>The Rockford Arms | Garden Pub | Linthwaite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#0d0d0d;
+      --bg-soft:#141414;
+      --bg-soft2:#1c1c1c;
+      --cream:#f4efe6;
+      --cream-dim:#c9c4b8;
+      --copper:#cd7f32;
+      --copper-light:#d4954a;
+      --white:#fff;
+      --text:#999;
+    }
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Manrope',sans-serif;
+      background:var(--bg);
+      color:var(--cream);
+      line-height:1.7;
+      -webkit-font-smoothing:antialiased;
+      overflow-x:hidden;
+    }
+    ::selection{background:var(--copper);color:var(--bg)}
+    /* TYPOGRAPHY */
+    .display{
+      font-family:'Bebas Neue',sans-serif;
+      font-weight:400;
+      letter-spacing:.02em;
+      line-height:.95;
+    }
+    .label{
+      font-size:.7rem;
+      font-weight:500;
+      letter-spacing:.3em;
+      text-transform:uppercase;
+      color:var(--copper);
+    }
+    h1,h2,h3{
+      font-family:'Manrope',sans-serif;
+      font-weight:300;
+    }
+    /* NAV */
+    nav{
+      position:fixed;
+      top:0;left:0;right:0;
+      z-index:100;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:1.5rem 4rem;
+      transition:all .4s;
+    }
+    nav.scrolled{
+      background:rgba(13,13,13,.95);
+      backdrop-filter:blur(20px);
+      padding:1rem 4rem;
+    }
+    .nav-logo{
+      display:flex;
+      align-items:baseline;
+      gap:1.5rem;
+    }
+    .nav-logo h1{
+      font-family:'Bebas Neue',sans-serif;
+      font-size:1.6rem;
+      letter-spacing:.08em;
+      color:var(--cream);
+    }
+    .nav-logo span{
+      font-size:.65rem;
+      letter-spacing:.25em;
+      text-transform:uppercase;
+      color:var(--text);
+    }
+    .nav-links{
+      display:flex;
+      gap:2.5rem;
+    }
+    .nav-links a{
+      font-size:.75rem;
+      font-weight:400;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--cream-dim);
+      text-decoration:none;
+      transition:color .3s;
+    }
+    .nav-links a:hover{color:var(--copper)}
+    .nav-cta{
+      font-size:.7rem;
+      font-weight:600;
+      letter-spacing:.15em;
+      text-transform:uppercase;
+      color:var(--bg);
+      background:var(--copper);
+      padding:.8rem 1.8rem;
+      text-decoration:none;
+      transition:background .3s;
+    }
+    .nav-cta:hover{background:var(--copper-light)}
+    @media(max-width:900px){
+      nav{padding:1.25rem 1.5rem}
+      .nav-links{display:none}
+    }
+    /* HERO */
+    .hero{
+      position:relative;
+      height:100vh;
+      min-height:700px;
+      display:flex;
+      align-items:center;
+      overflow:hidden;
+    }
+    .hero-img{
+      position:absolute;
+      inset:0;
+      background-image:url('img/hero-new.jpg');
+      background-size:cover;
+      background-position:center;
+      filter:brightness(.55) contrast(1.1);
+    }
+    .hero-img::after{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:linear-gradient(
+        105deg,
+        rgba(13,13,13,.9) 0%,
+        rgba(13,13,13,.6) 40%,
+        rgba(13,13,13,.2) 100%
+      );
+    }
+    .hero-content{
+      position:relative;
+      z-index:2;
+      padding:0 4rem;
+      max-width:900px;
+    }
+    .hero-label{
+      margin-bottom:1.5rem;
+      opacity:0;
+      transform:translateY(30px);
+      animation:fadeUp .8s ease-out .2s forwards;
+    }
+    .hero-title{
+      font-family:'Bebas Neue',sans-serif;
+      font-size:clamp(5rem,15vw,12rem);
+      line-height:.9;
+      color:var(--cream);
+      margin-bottom:.5rem;
+      opacity:0;
+      transform:translateY(50px);
+      animation:fadeUp .8s ease-out .4s forwards;
+    }
+    .hero-subtitle{
+      font-family:'Bebas Neue',sans-serif;
+      font-size:clamp(1.5rem,4vw,2.5rem);
+      color:var(--copper);
+      letter-spacing:.1em;
+      margin-bottom:2rem;
+      opacity:0;
+      transform:translateY(30px);
+      animation:fadeUp .8s ease-out .6s forwards;
+    }
+    .hero-tagline{
+      font-size:.95rem;
+      color:var(--cream-dim);
+      font-style:italic;
+      opacity:0;
+      transform:translateY(20px);
+      animation:fadeUp .8s ease-out .8s forwards;
+    }
+    @keyframes fadeUp{
+      to{opacity:1;transform:translateY(0)}
+    }
+    .hero-scroll{
+      position:absolute;
+      bottom:3rem;
+      left:50%;
+      transform:translateX(-50%);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:.5rem;
+      color:var(--text);
+      font-size:.65rem;
+      letter-spacing:.2em;
+      text-transform:uppercase;
+    }
+    .hero-scroll::after{
+      content:'';
+      width:1px;
+      height:40px;
+      background:linear-gradient(to bottom,var(--copper),transparent);
+      animation:scrollLine 2s ease-in-out infinite;
+    }
+    @keyframes scrollLine{
+      0%,100%{opacity:1;transform:scaleY(1)}
+      50%{opacity:.5;transform:scaleY(.6)}
+    }
+    /* INTRO */
+    .intro{
+      padding:10rem 4rem;
+      display:grid;
+      grid-template-columns:1fr 1.5fr;
+      gap:6rem;
+      max-width:1300px;
+      margin:0 auto;
+      align-items:center;
+    }
+    @media(max-width:900px){
+      .intro{grid-template-columns:1fr;padding:5rem 1.5rem;gap:3rem}
+    }
+    .intro-left{
+      position:relative;
+    }
+    .intro-num{
+      font-family:'Bebas Neue',sans-serif;
+      font-size:10rem;
+      color:var(--copper);
+      opacity:.15;
+      position:absolute;
+      top:-3rem;
+      left:-2rem;
+      line-height:1;
+    }
+    .intro-left h2{
+      font-size:clamp(2rem,3.5vw,2.8rem);
+      line-height:1.2;
+      position:relative;
+    }
+    .intro-right p{
+      font-size:1rem;
+      color:var(--text);
+      line-height:2;
+      margin-bottom:1.5rem;
+    }
+    .intro-right p strong{
+      color:var(--cream);
+      font-weight:500;
+    }
+    /* MARQUEE */
+    .marquee{
+      overflow:hidden;
+      padding:2rem 0;
+      border-top:1px solid rgba(205,127,50,.1);
+      border-bottom:1px solid rgba(205,127,50,.1);
+      background:var(--bg-soft);
+    }
+    .marquee-inner{
+      display:flex;
+      gap:4rem;
+      animation:marquee 30s linear infinite;
+      white-space:nowrap;
+    }
+    .marquee-inner span{
+      font-family:'Bebas Neue',sans-serif;
+      font-size:1.2rem;
+      letter-spacing:.2em;
+      color:var(--cream-dim);
+    }
+    .marquee-inner span::after{
+      content:'·';
+      margin-left:4rem;
+      color:var(--copper);
+    }
+    @keyframes marquee{
+      0%{transform:translateX(0)}
+      100%{transform:translateX(-50%)}
+    }
+    /* FEATURES */
+    .features{
+      padding:8rem 4rem;
+      max-width:1300px;
+      margin:0 auto;
+    }
+    .features-hdr{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      margin-bottom:4rem;
+    }
+    .features-hdr h2{
+      font-family:'Bebas Neue',sans-serif;
+      font-size:clamp(3rem,6vw,5rem);
+    }
+    .features-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:2rem;
+    }
+    @media(max-width:900px){
+      .features{padding:4rem 1.5rem}
+      .features-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    .feat-card{
+      padding:2.5rem 2rem;
+      background:var(--bg-soft);
+      border:1px solid rgba(205,127,50,.1);
+      position:relative;
+      overflow:hidden;
+      transition:all .4s;
+    }
+    .feat-card::before{
+      content:'';
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      height:2px;
+      background:var(--copper);
+      transform:scaleX(0);
+      transform-origin:left;
+      transition:transform .4s;
+    }
+    .feat-card:hover::before{transform:scaleX(1)}
+    .feat-card:hover{
+      background:var(--bg-soft2);
+      border-color:rgba(205,127,50,.3);
+    }
+    .feat-icon{
+      font-size:2rem;
+      margin-bottom:1.5rem;
+      display:block;
+    }
+    .feat-card h3{
+      font-size:.85rem;
+      font-weight:600;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      color:var(--cream);
+      margin-bottom:.75rem;
+    }
+    .feat-card p{
+      font-size:.8rem;
+      color:var(--text);
+      line-height:1.7;
+    }
+    /* ATMOSPHERE - full bleed */
+    .atmosphere{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      min-height:90vh;
+    }
+    @media(max-width:900px){.atmosphere{grid-template-columns:1fr}}
+    .atmosphere-img{
+      position:relative;
+    }
+    .atmosphere-img img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      filter:brightness(.85) contrast(1.05);
+    }
+    .atmosphere-content{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      padding:6rem 5rem;
+      background:var(--bg-soft);
+    }
+    @media(max-width:900px){.atmosphere-content{padding:4rem 1.5rem}}
+    .atmosphere-content .label{margin-bottom:2rem}
+    .atmosphere-content h2{
+      font-family:'Bebas Neue',sans-serif;
+      font-size:clamp(3rem,6vw,4.5rem);
+      line-height:.95;
+      margin-bottom:2rem;
+    }
+    .atmosphere-content p{
+      font-size:.95rem;
+      color:var(--text);
+      line-height:1.9;
+      margin-bottom:1.25rem;
+    }
+    .atmosphere-list{
+      list-style:none;
+      margin-top:2rem;
+    }
+    .atmosphere-list li{
+      padding:.9rem 0;
+      border-bottom:1px solid rgba(255,255,255,.05);
+      font-size:.9rem;
+      color:var(--cream-dim);
+      display:flex;
+      align-items:center;
+      gap:1rem;
+    }
+    .atmosphere-list li::before{
+      content:'→';
+      color:var(--copper);
+      font-weight:600;
+    }
+    /* GALLERY */
+    .gallery{
+      padding:8rem 4rem;
+      background:var(--bg-soft);
+    }
+    .gallery-hdr{
+      text-align:center;
+      margin-bottom:4rem;
+    }
+    .gallery-hdr h2{
+      font-family:'Bebas Neue',sans-serif;
+      font-size:clamp(3rem,6vw,5rem);
+      margin-top:.5rem;
+    }
+    .gallery-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      grid-template-rows:300px 250px;
+      gap:.75rem;
+      max-width:1200px;
+      margin:0 auto;
+    }
+    .gallery-grid img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      filter:brightness(.9);
+      transition:all .5s;
+    }
+    .gallery-grid img:hover{
+      filter:brightness(1);
+      transform:scale(1.02);
+      z-index:2;
+    }
+    .gallery-grid .g1{grid-column:1/3}
+    @media(max-width:900px){
+      .gallery{padding:4rem 1.5rem}
+      .gallery-grid{grid-template-columns:1fr;grid-template-rows:auto}
+      .gallery-grid img{height:220px}
+      .gallery-grid .g1{grid-column:1}
+    }
+    /* BUILD SECTION */
+    .build{
+      padding:8rem 4rem;
+      background:var(--bg);
+    }
+    .build-hdr{
+      text-align:center;
+      margin-bottom:4rem;
+    }
+    .build-hdr h2{
+      font-family:'Bebas Neue',sans-serif;
+      font-size:clamp(3rem,6vw,5rem);
+      margin-top:.5rem;
+    }
+    .build-hdr p{
+      font-size:.9rem;
+      color:var(--text);
+      max-width:500px;
+      margin:.5rem auto 0;
+    }
+    /* BUILD GALLERY */
+    .build{
+      padding:8rem 4rem;
+      background:var(--bg);
+    }
+    .build-hdr{
+      text-align:center;
+      margin-bottom:4rem;
+    }
+    .build-hdr h2{
+      font-family:'Bebas Neue',sans-serif;
+      font-size:clamp(3rem,6vw,5rem);
+      margin-top:.5rem;
+    }
+    .build-hdr p{
+      font-size:.9rem;
+      color:var(--text);
+      max-width:500px;
+      margin:.5rem auto 0;
+    }
+    .build-gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+      gap:1rem;
+      max-width:1400px;
+      margin:0 auto;
+    }
+    @media(max-width:900px){
+      .build-gallery{grid-template-columns:repeat(2,1fr)}
+      .build{padding:4rem 1.5rem}
+    }
+    .build-photo{
+      position:relative;
+      aspect-ratio:4/3;
+      overflow:hidden;
+      cursor:pointer;
+    }
+    .build-photo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      filter:brightness(.9);
+      transition:all .5s;
+    }
+    .build-photo:hover img{
+      filter:brightness(1);
+      transform:scale(1.05);
+    }
+    .build-photo .photo-num{
+      position:absolute;
+      bottom:.5rem;
+      right:.5rem;
+      font-family:'Bebas Neue',sans-serif;
+      font-size:.7rem;
+      letter-spacing:.1em;
+      color:var(--cream);
+      background:rgba(13,13,13,.7);
+      padding:.25rem .6rem;
+      opacity:0;
+      transition:opacity .3s;
+    }
+    .build-photo:hover .photo-num{opacity:1}
+    /* LIGHTBOX */
+    .lightbox{
+      display:none;
+      position:fixed;
+      inset:0;
+      z-index:1000;
+      background:rgba(0,0,0,.95);
+      align-items:center;
+      justify-content:center;
+      padding:2rem;
+    }
+    .lightbox.active{display:flex}
+    .lightbox img{
+      max-width:90vw;
+      max-height:90vh;
+      object-fit:contain;
+    }
+    .lightbox-close{
+      position:absolute;
+      top:1.5rem;
+      right:1.5rem;
+      font-size:2rem;
+      color:var(--cream);
+      cursor:pointer;
+      width:40px;
+      height:40px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(255,255,255,.1);
+      border-radius:50%;
+      transition:background .3s;
+    }
+    .lightbox-close:hover{background:rgba(255,255,255,.2)}
+    .lightbox-nav{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      font-size:2rem;
+      color:var(--cream);
+      cursor:pointer;
+      width:50px;
+      height:50px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(255,255,255,.1);
+      border-radius:50%;
+      transition:background .3s;
+      user-select:none;
+    }
+    .lightbox-nav:hover{background:rgba(255,255,255,.2)}
+    .lightbox-prev{left:1.5rem}
+    .lightbox-next{right:1.5rem}
+    /* RULES */
+    .rules{
+      padding:8rem 4rem;
+      background:var(--bg-soft2);
+    }
+    .rules-hdr{
+      text-align:center;
+      margin-bottom:5rem;
+    }
+    .rules-hdr h2{
+      font-family:'Bebas Neue',sans-serif;
+      font-size:clamp(3rem,6vw,5rem);
+      margin-top:.5rem;
+    }
+    .rules-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:1.5rem;
+      max-width:1200px;
+      margin:0 auto;
+    }
+    @media(max-width:900px){.rules-grid{grid-template-columns:repeat(2,1fr)}}
+    .rule-card{
+      padding:2rem;
+      background:rgba(205,127,50,.03);
+      border:1px solid rgba(205,127,50,.1);
+      text-align:center;
+      transition:all .3s;
+    }
+    .rule-card:hover{
+      background:rgba(205,127,50,.08);
+      border-color:rgba(205,127,50,.3);
+    }
+    .rule-icon{
+      font-size:2rem;
+      margin-bottom:1.25rem;
+    }
+    .rule-card h3{
+      font-size:.75rem;
+      font-weight:600;
+      letter-spacing:.15em;
+      text-transform:uppercase;
+      color:var(--cream);
+      margin-bottom:.75rem;
+    }
+    .rule-card p{
+      font-size:.8rem;
+      color:var(--text);
+      line-height:1.7;
+    }
+    /* QUOTE */
+    .quote{
+      padding:10rem 4rem;
+      text-align:center;
+      background:var(--bg);
+      position:relative;
+    }
+    .quote blockquote{
+      font-family:'Manrope',sans-serif;
+      font-size:clamp(1.4rem,3vw,2rem);
+      font-weight:300;
+      color:var(--cream);
+      max-width:800px;
+      margin:0 auto 2rem;
+      line-height:1.6;
+    }
+    .quote cite{
+      font-size:.7rem;
+      font-weight:500;
+      letter-spacing:.25em;
+      text-transform:uppercase;
+      color:var(--copper);
+      font-style:normal;
+    }
+    /* VISIT */
+    .visit{
+      padding:8rem 4rem;
+      background:var(--bg-soft);
+    }
+    .visit-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:5rem;
+      max-width:1200px;
+      margin:0 auto;
+      align-items:center;
+    }
+    @media(max-width:900px){
+      .visit-grid{grid-template-columns:1fr;gap:3rem}
+      .visit{padding:4rem 1.5rem}
+    }
+    .visit h2{
+      font-family:'Bebas Neue',sans-serif;
+      font-size:clamp(3rem,6vw,4.5rem);
+      margin-bottom:2.5rem;
+    }
+    .visit-item{
+      padding:1.5rem 0;
+      border-bottom:1px solid rgba(255,255,255,.05);
+    }
+    .visit-item .label{margin-bottom:.5rem}
+    .visit-item p{
+      font-size:.95rem;
+      color:var(--cream-dim);
+      line-height:1.7;
+    }
+    .visit-map{
+      height:400px;
+      border:1px solid rgba(205,127,50,.2);
+      overflow:hidden;
+    }
+    .visit-map iframe{
+      width:100%;
+      height:100%;
+      filter:invert(1) hue-rotate(180deg) brightness(.7) contrast(1.1);
+    }
+    /* FOOTER */
+    footer{
+      padding:4rem;
+      background:var(--bg);
+      border-top:1px solid rgba(205,127,50,.1);
+    }
+    .footer-inner{
+      max-width:1200px;
+      margin:0 auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:2rem;
+    }
+    @media(max-width:900px){.footer-inner{flex-direction:column;text-align:center}}
+    .footer-brand h2{
+      font-family:'Bebas Neue',sans-serif;
+      font-size:1.8rem;
+      letter-spacing:.08em;
+      color:var(--cream);
+    }
+    .footer-brand p{
+      font-size:.7rem;
+      letter-spacing:.2em;
+      text-transform:uppercase;
+      color:var(--text);
+      margin-top:.25rem;
+    }
+    .footer-tagline{
+      font-style:italic;
+      color:var(--copper);
+      font-size:1rem;
+    }
+    .footer-bottom{
+      max-width:1200px;
+      margin:3rem auto 0;
+      padding-top:2rem;
+      border-top:1px solid rgba(255,255,255,.03);
+      text-align:center;
+      font-size:.7rem;
+      color:var(--text);
+      letter-spacing:.1em;
+    }
+    /* SCROLL ANIMATIONS */
+    .reveal{
+      opacity:0;
+      transform:translateY(40px);
+      transition:opacity .8s,transform .8s;
+    }
+    .reveal.visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-logo">
+    <h1>The Rockford Arms</h1>
+    <span>Est. 2024</span>
+  </div>
+  <div class="nav-links">
+    <a href="#atmosphere">Atmosphere</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#build">The Build</a>
+    <a href="#rules">Rules</a>
+  </div>
+  <a href="#visit" class="nav-cta">Visit</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-img"></div>
+  <div class="hero-content">
+    <div class="hero-label label">Linthwaite, West Yorkshire</div>
+    <h2 class="hero-title display">The<br>Rockford<br>Arms</h2>
+    <p class="hero-subtitle display">Garden Pub Est. 2024</p>
+    <p class="hero-tagline">"Proudly severing, whatever you bring"</p>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+  </div>
+</section>
+
+<section class="intro">
+  <div class="intro-left reveal">
+    <div class="intro-num">01</div>
+    <h2>The story behind<br>the garden bar</h2>
+  </div>
+  <div class="intro-right reveal">
+    <p>In the heart of Linthwaite, between the flower beds and the fence, something rather special emerged. Not a shed with ambition — a full-blown <strong>destination</strong>.</p>
+    <p>What started as a question — "what if we built a pub in the garden?" — became one of West Yorkshire's most characterful venues. Every brick, every bottle, every dart thrown at that board is a testament to what happens when you combine a good idea with a healthy dose of stubbornness.</p>
+    <p>Welcome to <strong>The Rockford Arms</strong>. You're most welcome here.</p>
+  </div>
+</section>
+
+<div class="marquee">
+  <div class="marquee-inner">
+    <span>Craft Beers</span>
+    <span>Darts</span>
+    <span>Sky Sports</span>
+    <span>Good Vibes</span>
+    <span>Dogs Welcome</span>
+    <span>Friday Nights</span>
+    <span>Best in Linthwaite</span>
+    <span>Since 2024</span>
+    <span>Craft Beers</span>
+    <span>Darts</span>
+    <span>Sky Sports</span>
+    <span>Good Vibes</span>
+    <span>Dogs Welcome</span>
+    <span>Friday Nights</span>
+    <span>Best in Linthwaite</span>
+    <span>Since 2024</span>
+  </div>
+</div>
+
+<section class="features">
+  <div class="features-hdr reveal">
+    <div class="label">What's On Offer</div>
+    <h2 class="display">What You<br>Find Here</h2>
+  </div>
+  <div class="features-grid">
+    <div class="feat-card reveal">
+      <span class="feat-icon">🍺</span>
+      <h3>Artisan Draught</h3>
+      <p>From local ales to world selections, poured with the precision of someone who really cares about their pint.</p>
+    </div>
+    <div class="feat-card reveal">
+      <span class="feat-icon">🎯</span>
+      <h3>Darts</h3>
+      <p>Championship board, serious throws, and absolutely zero tolerance for boasts that can't be backed up.</p>
+    </div>
+    <div class="feat-card reveal">
+      <span class="feat-icon">📺</span>
+      <h3>Sky Sports</h3>
+      <p>All the major sporting events on a proper screen. Remote wars are strictly prohibited.</p>
+    </div>
+    <div class="feat-card reveal">
+      <span class="feat-icon">✨</span>
+      <h3>Atmosphere</h3>
+      <p>Neon glow, ambient lighting, and that undefinable something that makes you want to stay for "one more."</p>
+    </div>
+  </div>
+</section>
+
+<section class="atmosphere" id="atmosphere">
+  <div class="atmosphere-img">
+    <img src="img/40d28d96-364f-4a1b-8d72-7665150da762.jpg" alt="The Rockford Arms bar"/>
+  </div>
+  <div class="atmosphere-content">
+    <div class="label reveal">The Experience</div>
+    <h2 class="display reveal">Where Garden<br>Dreams Become<br>Pub Reality</h2>
+    <p class="reveal">Every detail here tells a story. The reclaimed wood that became the bar top. The neon sign that started as a joke. The dartboard that's seen its fair share of dramatic finishes.</p>
+    <ul class="atmosphere-list reveal">
+      <li>Fully stocked bar with premium spirits</li>
+      <li>Championship darts — all throws welcome</li>
+      <li>Sky Sports on the big screen</li>
+      <li>Heated & covered for year-round enjoyment</li>
+    </ul>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="gallery-hdr reveal">
+    <div class="label">Gallery</div>
+    <h2 class="display">A Glimpse<br>Inside</h2>
+  </div>
+  <div class="gallery-grid">
+    <img class="g1 reveal" src="img/27fa9352-903b-495d-b253-e4e9a3ee48eb.jpg" alt="The bar"/>
+    <img class="reveal" src="img/fb7e747c-6102-4d6c-ae47-68f1c2e9e367.jpg" alt="Friday night"/>
+    <img class="reveal" src="img/6128ed21-cf7b-4ff9-b608-05d7216812f6.jpg" alt="Cozy evening"/>
+    <img class="reveal" src="img/24abba6b-9e9a-4bad-8075-b4b86abde3fb.jpg" alt="Darts night"/>
+    <img class="reveal" src="img/f0ab9ad0-2386-447b-b2f3-0a03e85f90b5.jpg" alt="Good company"/>
+    <img class="reveal" src="img/6596fc40-2c7e-4347-825d-e2ccf05d960a.jpg" alt="The setup"/>
+  </div>
+</section>
+
+<section class="build" id="build">
+  <div class="build-hdr reveal">
+    <div class="label">The Build</div>
+    <h2 class="display">From Garden<br>to Pub</h2>
+    <p>48 photos documenting the journey from empty garden to West Yorkshire's finest garden bar.</p>
+  </div>
+  <div style="text-align:center;padding:2rem 0">
+    <a href="build.html" class="nav-cta" style="display:inline-block;text-decoration:none">View Full Build Gallery →</a>
+  </div>
+</section>
+
+<section class="rules" id="rules">
+  <div class="rules-hdr reveal">
+    <div class="label">The Code</div>
+    <h2 class="display">House Rules</h2>
+  </div>
+  <div class="rules-grid">
+    <div class="rule-card reveal">
+      <span class="rule-icon">🐕</span>
+      <h3>Dogs Welcome</h3>
+      <p>Your four-legged friends are honoured guests here. People tolerated — but warmly so.</p>
+    </div>
+    <div class="rule-card reveal">
+      <span class="rule-icon">🙋</span>
+      <h3>BYO Attitude</h3>
+      <p>Bring your best self. Everything else — drinks, vibes, good times — is already taken care of.</p>
+    </div>
+    <div class="rule-card reveal">
+      <span class="rule-icon">🎯</span>
+      <h3>Respect the Board</h3>
+      <p>The dartboard has feelings. Bullseyes are celebrated. Misfires are witnessed and forgiven.</p>
+    </div>
+    <div class="rule-card reveal">
+      <span class="rule-icon">🚫</span>
+      <h3>No Moaning</h3>
+      <p>This is a happy place. Mondays are banned. Negativity requires a formal written warning.</p>
+    </div>
+  </div>
+</section>
+
+<section class="quote">
+  <blockquote class="reveal">"The sign says established 2024, but the atmosphere feels like it's been here forever. That's the magic of it."</blockquote>
+  <cite class="reveal">— A Regular, Linthwaite</cite>
+</section>
+
+<section class="visit" id="visit">
+  <div class="visit-grid">
+    <div class="reveal">
+      <div class="label">Find Us</div>
+      <h2 class="display">Plan Your<br>Visit</h2>
+      <div class="visit-item">
+        <div class="label">Location</div>
+        <p>Linthwaite, West Yorkshire</p>
+      </div>
+      <div class="visit-item">
+        <div class="label">Hours</div>
+        <p>Friday: 6pm – Late<br>Saturday: 5pm – Late<br>Sunday: 4pm – 9pm<br><em>Or by arrangement</em></p>
+      </div>
+      <div class="visit-item">
+        <div class="label">The Motto</div>
+        <p><em>"Proudly severing, whatever you bring"</em></p>
+      </div>
+    </div>
+    <div class="visit-map reveal">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2355.4!2d-1.85!3d53.62!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sLinthwaite!5e0!3m2!1sen!2suk!4v1" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h2>The Rockford Arms</h2>
+      <p>Linthwaite · Est. 2024</p>
+    </div>
+    <div class="footer-tagline">"Proudly severing, whatever you bring"</div>
+  </div>
+  <div class="footer-bottom">
+    © 2024 The Rockford Arms · Linthwaite, West Yorkshire
+  </div>
+</footer>
+
+<script>
+  // Nav scroll
+  window.addEventListener('scroll',()=>{
+    document.getElementById('nav').classList.toggle('scrolled',window.scrollY>80);
+  });
+
+  // Scroll reveal
+  const observer=new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{
+      if(e.isIntersecting){
+        setTimeout(()=>e.target.classList.add('visible'),i*100);
+      }
+    });
+  },{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+  // Build card images (placeholder)
+  document.querySelectorAll('.build-card img').forEach(img=>{
+    if(img.src && img.src.includes('via.placeholder')){
+      img.classList.add('loaded');
+    }
+  });
+
+  // Lightbox
+  const photos=document.querySelectorAll('.build-photo img');
+  const lightbox=document.getElementById('lightbox');
+  const lightboxImg=document.getElementById('lightbox-img');
+  let currentIndex=0;
+
+  window.openLightbox=function(index){
+    currentIndex=index;
+    lightboxImg.src=photos[index].src;
+    lightbox.classList.add('active');
+    document.body.style.overflow='hidden';
+  };
+
+  window.closeLightbox=function(){
+    lightbox.classList.remove('active');
+    document.body.style.overflow='';
+  };
+
+  window.prevPhoto=function(){
+    currentIndex=(currentIndex-1+photos.length)%photos.length;
+    lightboxImg.src=photos[currentIndex].src;
+  };
+
+  window.nextPhoto=function(){
+    currentIndex=(currentIndex+1)%photos.length;
+    lightboxImg.src=photos[currentIndex].src;
+  };
+
+  document.addEventListener('keydown',(e)=>{
+    if(!lightbox.classList.contains('active'))return;
+    if(e.key==='Escape')closeLightbox();
+    if(e.key==='ArrowLeft')prevPhoto();
+    if(e.key==='ArrowRight')nextPhoto();
+  });
+
+  lightbox.addEventListener('click',(e)=>{
+    if(e.target===lightbox)closeLightbox();
+  });
+</script>
+
+</body>
+</html>
