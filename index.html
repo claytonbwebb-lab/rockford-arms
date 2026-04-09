@@ -247,6 +247,62 @@
       color:var(--cream);
       font-weight:500;
     }
+    /* VIDEO SHOWCASE */
+    .video-showcase{
+      padding:6rem 4rem;
+      background:var(--bg-soft);
+      text-align:center;
+    }
+    .video-showcase .label{margin-bottom:1rem}
+    .video-showcase h2{
+      font-family:'Bebas Neue',sans-serif;
+      font-size:clamp(2rem,4vw,3.5rem);
+      color:var(--cream);
+      margin-bottom:.5rem;
+    }
+    .video-showcase p{
+      color:var(--text);
+      font-size:.85rem;
+      margin-bottom:3rem;
+      font-style:italic;
+    }
+    .video-frame{
+      display:inline-block;
+      position:relative;
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 1px rgba(205,127,50,.15);
+      background:#000;
+      max-width:320px;
+    }
+    .video-frame::before{
+      content:'';
+      position:absolute;
+      inset:-3px;
+      border-radius:14px;
+      background:linear-gradient(135deg,rgba(205,127,50,.3),transparent 50%,rgba(205,127,50,.1));
+      z-index:-1;
+    }
+    .video-frame video{
+      display:block;
+      width:100%;
+      max-width:320px;
+      height:auto;
+      aspect-ratio:464/848;
+      object-fit:cover;
+    }
+    .video-caption{
+      margin-top:1.5rem;
+      font-size:.7rem;
+      letter-spacing:.2em;
+      text-transform:uppercase;
+      color:var(--copper);
+    }
+    @media(max-width:600px){
+      .video-showcase{padding:4rem 1.5rem}
+      .video-frame{max-width:260px}
+    }
+
     /* MARQUEE */
     .marquee{
       overflow:hidden;
@@ -776,6 +832,19 @@
   <div class="hero-scroll">
     <span>Scroll</span>
   </div>
+</section>
+
+<section class="video-showcase">
+  <div class="label reveal">See It For Yourself</div>
+  <h2 class="reveal">A Night at The Rockford Arms</h2>
+  <p class="reveal">48 seconds. All the vibes.</p>
+  <div class="video-frame reveal">
+    <video autoplay muted loop playsinline poster="img/hero-new.jpg">
+      <source src="video.mp4" type="video/mp4"/>
+      Your browser doesn't support HTML5 video.
+    </video>
+  </div>
+  <div class="video-caption reveal">Linthwaite's finest garden bar · Est. 2024</div>
 </section>
 
 <section class="intro">
