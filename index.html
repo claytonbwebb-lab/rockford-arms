@@ -75,6 +75,9 @@
       padding:1.5rem 4rem;
       transition:all .4s;
     }
+    @media(max-width:900px){
+      nav{background:rgba(13,13,13,.97);backdrop-filter:blur(20px)}
+    }
     nav.scrolled{
       background:rgba(13,13,13,.95);
       backdrop-filter:blur(20px);
@@ -125,8 +128,7 @@
     .nav-cta:hover{background:var(--copper-light)}
     @media(max-width:900px){
       nav{padding:1.25rem 1.5rem;background:rgba(13,13,13,.97);backdrop-filter:blur(20px)}
-      .nav-links{gap:1.5rem}
-      .nav-links a{font-size:.65rem}
+      .nav-links{display:none}
     }
     /* HERO */
     .hero{
